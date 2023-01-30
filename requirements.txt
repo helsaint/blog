@@ -1,6 +1,5 @@
 asgiref==3.4.1
 autopep8==1.5.7
-certifi @ file:///C:/b/abs_85o_6fm0se/croot/certifi_1671487778835/work/certifi
 dj-database-url==0.5.0
 Django==3.2.6
 django-appconf==1.0.5
