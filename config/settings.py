@@ -10,7 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from environs import Env
 from pathlib import Path
+
+#For Django Deployment
+env = Env()
+env.read_env()
 
 # Build paths inside the pro ject like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,18 +25,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)8ihg+$(crq$yue8b)l2+k17tiw6#m2jn&m$x!)w^g5e3p245q'
+#SECRET_KEY = 'django-insecure-)8ihg+$(crq$yue8b)l2+k17tiw6#m2jn&m$x!)w^g5e3p245q'
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+#Used when hosting on HEROKU
+DEBUG = env.bool("DEBUG",default=False)
 
 #Used when hosting locally
 #ALLOWED_HOSTS = []
-
 #Used when hosting on Heroku
 ALLOWED_HOSTS = ['*','blog.herokuapp.com','localhost','127.0.0.1']
-
-
 
 # Application definition
 
@@ -94,18 +99,22 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #    }
 #}
 
+#Database stored on Heroku
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'defbrn8f3o1n8m',
+#        'USER': 'moncrujoxclgll',
+#        'PASSWORD': 'b76998d95eab8047800e52199183e68af376decc1784a6ec87b0a51460bce5bf',
+#        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
+#        'PORT': '5432',
+#    }
+#}
+
+#Database stored on Heroku using environmental settings
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'defbrn8f3o1n8m',
-        'USER': 'moncrujoxclgll',
-        'PASSWORD': 'b76998d95eab8047800e52199183e68af376decc1784a6ec87b0a51460bce5bf',
-        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    'defualt': env.dj_db_url("DATABASE_URL")
 }
-
-
 
 
 # Password validation
