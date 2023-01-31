@@ -29,7 +29,7 @@ DEBUG = True
 #ALLOWED_HOSTS = []
 
 #Used when hosting on Heroku
-ALLOWED_HOSTS = ['.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['blog.herokuapp.com','localhost','127.0.0.1']
 
 
 
