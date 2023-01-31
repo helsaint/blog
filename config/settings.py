@@ -113,7 +113,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 #Database stored on Heroku using environmental settings
 DATABASES = {
-    'defualt': env.dj_db_url("DATABASE_URL")
+    'default': env.dj_db_url("DATABASE_URL")
 }
 
 
