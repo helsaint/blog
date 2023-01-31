@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the pro ject like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-)8ihg+$(crq$yue8b)l2+k17tiw6#m2jn&m$x!)w^g5e3p245q
 DEBUG = True
 
 #Used when hosting locally
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+
+#Used when hosting on Heroku
+ALLOWED_HOSTS = ['.herokuapp.com','localhost','127.0.0.1']
 
 
 
