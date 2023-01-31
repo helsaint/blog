@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +26,8 @@ SECRET_KEY = 'django-insecure-)8ihg+$(crq$yue8b)l2+k17tiw6#m2jn&m$x!)w^g5e3p245q
 DEBUG = True
 
 #Used when hosting locally
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS=['blog.herokuapp.com']
+ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -80,25 +78,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 #Database stored locally
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'alexe_db',
-#        'USER': 'alexe_db',
-#        'PASSWORD': 'Leto2Atreides!@6879',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-#}
-
-#Database stored in Heroku
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'defbrn8f3o1n8m',
-        'USER': 'moncrujoxclgll',
-        'PASSWORD': 'b76998d95eab8047800e52199183e68af376decc1784a6ec87b0a51460bce5bf',
-        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
+        'NAME': 'alexe_db',
+        'USER': 'alexe_db',
+        'PASSWORD': 'Leto2Atreides!@6879',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -143,13 +129,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 #Below are static files when hosting locally
-#STATIC_URL = '/static/'
-#STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
-#Below are static files when hosting on Heroku
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATIC_URL = "/static/"
-django_heroku.settings(locals())
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
