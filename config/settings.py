@@ -36,7 +36,7 @@ DEBUG = env.bool("DEBUG",default=False)
 #Used when hosting locally
 #ALLOWED_HOSTS = []
 #Used when hosting on Heroku
-ALLOWED_HOSTS = ['*','blog.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*', 'www.aramotar.com','aramotar.com','blog.herokuapp.com','localhost','127.0.0.1']
 
 # Application definition
 
