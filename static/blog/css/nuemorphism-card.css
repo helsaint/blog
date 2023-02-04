@@ -57,7 +57,7 @@ body .container-nuemorphism .card-nuemorphism .box-nuemorphism {
   bottom: 20px;
   background: #2a2b2f;
   border-radius: 15px;
-  display: flex;
+  display: inherit;
   justify-content: center;
   align-items: center;
   overflow: auto;
@@ -81,6 +81,7 @@ body .container-nuemorphism .card-nuemorphism .box-nuemorphism:before {
 body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorphism {
   padding: 20px;
   text-align: center;
+  text-overflow: inherit;
 }
 
 body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorphism h2 {
@@ -97,6 +98,7 @@ body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorph
   z-index: 1;
   transition: 0.5s;
   margin-bottom: 15px;
+  text-overflow:inherit;
 }
 
 body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorphism p {
@@ -106,6 +108,7 @@ body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorph
   color: rgba(255, 255, 255, 0.9);
   z-index: 1;
   transition: 0.5s;
+  text-overflow: inherit;
 }
 
 body .container-nuemorphism .card-nuemorphism .box-nuemorphism .content-nuemorphism a {

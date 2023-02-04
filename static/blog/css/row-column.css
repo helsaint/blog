@@ -7,11 +7,15 @@ body {
 }
 
 /* Float four columns side by side */
-.column-blog {
-  float: left;
-  width: 100%;
-  padding: 0 10px;
-} 
+@media screen and (max-width: 600px) {
+  .column-blog {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    display: block;
+  } 
+}
+
 
 /* Remove extra left and right margins, due to padding in columns */
 .row-blog {margin: 0 -5px;}

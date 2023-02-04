@@ -1858,7 +1858,7 @@ input, select, textarea {
 		background-position: calc(100% - 1em) center;
 		height: 2.75em;
 		padding-right: 2.75em;
-		text-overflow: ellipsis;
+		fverflow: ellipsis;
 	}
 
 		select option {
