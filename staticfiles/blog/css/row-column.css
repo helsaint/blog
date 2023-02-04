@@ -12,7 +12,7 @@ body {
     float: left;
     width: 100%;
     padding: 0 10px;
-    display: block;
+    display: inherit;
   } 
 }
 
