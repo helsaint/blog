@@ -118,10 +118,10 @@
 									<form method="post" action="#">
 										{% csrf_token %}
 										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall">{{ form.name }}</div>
-											<div class="col-6 col-12-xsmall">{{ form.email }}</div>
-											<div class="col-12">{{ form.subject }}</div>
-											<div class="col-12">{{ form.message }}</div>
+											<div class="col-6 col-12-xsmall">{{ form.name }}<p>Name</p></div>
+											<div class="col-6 col-12-xsmall">{{ form.email }}<p>Email</p></div>
+											<div class="col-12">{{ form.subject }}<p>Subject</p></div>
+											<div class="col-12">{{ form.message }}<p>Message</p></div>
 											<div class="col-12">
 												<ul class="actions">
 													<li><input type="submit" class="primary" value="Send Message" /></li>

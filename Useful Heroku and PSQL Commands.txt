@@ -1,5 +1,6 @@
 blog-home::DATABASE=> \dt #lists all user tables in database
-heroku pg:psql -a blog-home < blog_quillpost.sql #execute the sql command contained in blog_quillpost.sql on Heroku postgres db attached to the app blog-home
-pg_dump -h localhost -U postgres -W --table="blog_quillpost" --data-only --column-inserts alexe_db > blog_quillpost.sql #Creates an SQL insert query to insert data from table blog_quillpost from database alexe_db
-heroku auth:whoami #see who is currently logged in on Heroku
-heroku pg:info -a blog-home #Gives info about database datastores name that you can then get credential information for heroku psql access
+(windows) heroku pg:psql -a blog-home < blog_quillpost.sql #execute the sql command contained in blog_quillpost.sql on Heroku postgres db attached to the app blog-home
+(windows) pg_dump -h localhost -U postgres -W --table="blog_quillpost" --data-only --column-inserts alexe_db > blog_quillpost.sql #Creates an SQL insert query to insert data from table blog_quillpost from database alexe_db
+(windows) heroku auth:whoami #see who is currently logged in on Heroku
+(windows) heroku pg:info -a blog-home #Gives info about database datastores name that you can then get credential information for heroku psql access
+(windows) heroku run python manage.py migrate #Use to update database with any new or updated datamodels

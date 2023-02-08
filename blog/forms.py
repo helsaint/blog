@@ -6,3 +6,4 @@ class CustomForm(forms.ModelForm):
     class Meta:
         model = UserResponseModel
         fields = ['name','email', 'subject', 'message']
+        
