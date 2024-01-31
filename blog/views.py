@@ -42,7 +42,11 @@ def BlogLstDict(request):
 #Get AI generated image from lexica using the 100 word description of the article
 def LexicaArtScrape(search_term):
     url_base = "https://lexica.art/?q="
-    page = urlopen(url_base+search_term)
+    page = ""
+    try:
+        page = urlopen(url_base+search_term, timeout=2)
+    except:
+       return "https://upload.wikimedia.org/wikipedia/commons/c/c3/JPEG_format_logo.svg"
     html_bytes = page.read()
     html = html_bytes.decode("utf-8")
     start_text = "images="
@@ -54,7 +58,8 @@ def LexicaArtScrape(search_term):
         pattern = re.compile(r'^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$')
         if (bool(pattern.match(i))):
             return i
-    return "/static/images/avatar.jpg"
+    
+    return "https://upload.wikimedia.org/wikipedia/commons/c/c3/JPEG_format_logo.svg"
 
 #Non Functional
 def FormSubmit(request):
