@@ -1,6 +1,39 @@
+DJANGO
+(windows)python manage.py runserver #Start server for testing in localhost (django command)
+to check djang admin username:
+(windows) python manage.py shell
+>>>from django.contrib.auth import get_user_model
+>>>list(get_user_model().objects.filter(is_superuser=True).values_list('username', flat=True))
+to reset admin password:
+(windows) python manage.py shell
+>>> from django.contrib.auth.models import User
+>>> u = User.objects.get(username="john")
+>>> u.set_password("new password")
+>>> u.save()
+
+### To Change django admin password in heroku:
+1 Log in to Heroku
+2 Go to the app
+3 click on More>Run Console
+4 Type in the python manage.py shell 
+5 >>>from django.contrib.auth import get_user_model
+6 >>>list(get_user_model().objects.filter(is_superuser=True).values_list('username', flat=True))
+to reset admin password:
+7 (windows) python manage.py shell
+8 >>> from django.contrib.auth.models import User
+9 >>> u = User.objects.get(username="john")
+10 >>> u.set_password("new password")
+11 >>> u.save()
+
 blog-home::DATABASE=> \dt #lists all user tables in database
 (windows) heroku pg:psql -a blog-home < blog_quillpost.sql #execute the sql command contained in blog_quillpost.sql on Heroku postgres db attached to the app blog-home
-(windows) pg_dump -h localhost -U postgres -W --table="blog_quillpost" --data-only --column-inserts alexe_db > blog_quillpost.sql #Creates an SQL insert query to insert data from table blog_quillpost from database alexe_db
+(windows) pg_dump -h localhost -U postgres -W --table="blog_quillpost" --data-only --column-inserts alexe_db > blog_quillpost.sql  #Creates an SQL insert query to insert data from table blog_quillpost from database alexe_db
 (windows) heroku auth:whoami #see who is currently logged in on Heroku
 (windows) heroku pg:info -a blog-home #Gives info about database datastores name that you can then get credential information for heroku psql access
 (windows) heroku run python manage.py migrate #Use to update database with any new or updated datamodels
+(windows) \copy premier_league from 'csvs/premier_league.csv' DELIMITER ',' CSV HEADER; #move data from csv to an empty table. Table must have already been created using CREATE TABLE ...
+(windows) SET client_encoding TO 'UTF8'; #if we get the error about "WIN1252 has no equivalent encoding in utf8" 
+###Update a table in Heroku
+(windows) heroku pg:psql postgresql-pointy-79941 --app my-dashboards #Connect to Heroku database
+(heroku) delete from premier_league; #delete current data in the table without losing changing the schema
+(heroku) \copy premier_league from 'csvs/premier_league.csv' DELIMITER ',' CSV HEADER;

@@ -3,6 +3,7 @@ from .models import QuillPost
 import re
 from json import dumps
 from .forms import CustomForm
+from urllib.request import urlopen
 
 #Get all blog entries and setup contact form
 def BlogHome(request):
@@ -14,6 +15,7 @@ def BlogHome(request):
         return redirect("blog")
     else:
         form = CustomForm()
+    
     return render(request, 'blog.html', {'blog_data': lst_return, 'form': form})
     
 #Populate blog_data dictionary for blog entries
@@ -26,12 +28,35 @@ def BlogLstDict(request):
         dictTemp['ID'] = d.id
         strTempH1 = re.search(r'(<h1.*?>.*?<\/h1>)',str(d.content.html)).group(0)
         dictTemp['Title'] = strTempH1[4:len(strTempH1)-5]
+        url_add_on = dictTemp['Title']
+        url_add_on = url_add_on.replace(" ", "+")
+        url_image = LexicaArtScrape(url_add_on)
+        dictTemp['Image'] = url_image
         strTemp = str(d.content.html)[:250]
         strTemp = re.sub(removeTags, '', strTemp)
         dictTemp['First100'] = strTemp
         lst_return.append(dictTemp)
-    return lst_return
 
+    return list(reversed(lst_return))
+
+#Get AI generated image from lexica using the 100 word description of the article
+def LexicaArtScrape(search_term):
+    url_base = "https://lexica.art/?q="
+    page = urlopen(url_base+search_term)
+    html_bytes = page.read()
+    html = html_bytes.decode("utf-8")
+    start_text = "images="
+    end_text = "&amp;"
+    pattern = re.compile(f'(?<={re.escape(start_text)})(.*?)(?={re.escape(end_text)})')
+    url_matches = pattern.findall(html)
+    
+    for i in url_matches:
+        pattern = re.compile(r'^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$')
+        if (bool(pattern.match(i))):
+            return i
+    return "/static/images/avatar.jpg"
+
+#Non Functional
 def FormSubmit(request):
     if request.method == "POST":
         form = CustomForm(request.POST)
