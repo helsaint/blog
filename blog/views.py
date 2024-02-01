@@ -46,6 +46,7 @@ def LexicaArtScrape(search_term):
     try:
         page = urlopen(url_base+search_term, timeout=2)
     except:
+       print(page)
        return "https://upload.wikimedia.org/wikipedia/commons/c/c3/JPEG_format_logo.svg"
     html_bytes = page.read()
     html = html_bytes.decode("utf-8")
