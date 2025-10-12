@@ -16,7 +16,6 @@ def BlogHome(request):
         return redirect("blog")
     else:
         form = CustomForm()
-
     return render(request, "blog.html", {"blog_data": lst_return, "form": form})
 
 
@@ -83,3 +82,7 @@ def FormSubmit(request):
 def BlogDetail(request, id):
     data = QuillPost.objects.get(id=id)
     return render(request, "blog_detail.html", {"blog_data": data})
+
+# Search function using Google Custom Search Engine
+def search_results_view(request):
+    return render(request, "search.html",{})   

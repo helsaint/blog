@@ -1,547 +1,193 @@
 <!DOCTYPE HTML>
 <!--
-	Read Only by HTML5 UP
+	Editorial by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 {% load static %}
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<title>Alexei Ramotar</title>
-		<!--<link rel="stylesheet" href="{% static 'blog/css/nuemorphism-card.css' %}?{% now 'U' %}">-->
-        <link rel="stylesheet" href="{% static 'blog/css/nuemorphism-card.css' %}">
-        <link rel="stylesheet" href="{% static 'blog/css/row-column.css' %}">
-		<link rel="stylesheet" href="{% static 'blog/css/sorin-menu.css' %}" />
-		<link rel="stylesheet" href="{% static 'blog/css/main.css' %}" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-		<link rel="stylesheet" href="{% static 'blog/css/responsive-blog-card-slider.css' %}"/>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-		<title>Alexei Ramotar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'blog/css/main.css' %}?v=1.0.2" />
 	</head>
-	<body class="is-preload" translate="no">
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar"><img src="{% static 'blog/images/avatar_1.png' %}" alt="" /></span>
-					<h1 id="logo"><a href="#">T. Casey Brennan</a></h1>
-					<p>Poor animals, how jealously they guard their bodies. For us, merely an evening's meal; to them life itself.</p><br />
-						
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">About</a></li>
-						<li><a href="#two">Expand Your Mind Blog</a></li>
-						<li><a href="#three">Things I Can Do</a></li>
-						<li><a href="#four">Contact</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://twitter.com/AlexeiRamotar" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.linkedin.com/in/aramotar" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://www.instagram.com/alexeiramotar/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://github.com/helsaint/" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+	<body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Main -->
 					<div id="main">
+						<div class="inner">
 
-						<!-- One -->
-						<section id="one">
-							<div class="image main" data-position="center">
-								<img src="{% static 'blog/images/banner_1.png' %}" alt="" />
-								<nav class="nav_sorin">
-									<div class="navicon_sorin">
-										<div></div>
-									</div>
-									<a class="a_sorin" href="#">Blog</a>
-									<a class="a_sorin" href="https://dashboards.aramotar.com/emissions">Dashboard</a>
-									<a class="a_sorin" href="https://election-results-guyana-2025-fc1bf55c73e3.herokuapp.com/">Guyana Elections Map</a>
-									<a class="a_sorin" href="https://django-langchain-201feccb0790.herokuapp.com/">AI Querry Guyana Budget 2025</a>
-								</nav>
-							</div>
-							<div class="container">
-								<header class="major">
-									<h2>Read Only</h2>
-									<p>Welcome! My name is Alexei, and I'm the kind of person who 
-										thinks coffee is gross and preferes chocolate milk.<br />
-										</p>
-								</header>
-								<p>I'm a self-proclaimed expert in politics and international relations.
-									If there was an Olympic event in offering my opinion, 
-									I'd be a gold medalist for sure.<br />
-									<p>When I'm not talking politics, you can find me 
-									binge-watching my favorite TV shows, 
-									trying out new recipes in the kitchen, 
-									or taking long naps with my cat. <br />
-									<p>I like to think of myself as a Renaissance person, 
-									but really, I just have a lot of hobbies and not enough time.<br />
-							</div>
-						</section>
-
-						<section id="two">
-							<div class="blog-slider">
-								<div class="blog-slider__wrp swiper-wrapper">
-									{% for blog in blog_data %}
-									<div class="blog-slider__item swiper-slide">
-										<div class="blog-slider__img">
-										  <img src="{{ blog.Image }}" alt="">
-										</div>
-										<div class="blog-slider__content">
-										  <div class="blog-slider__title">{{ blog.Title }}</div>
-										  <div class="blog-slider__text">{{ blog.First100 }}</div>
-										  <a href="{% url 'blog_detail' blog.ID %}" class="blog-slider__button">READ MORE</a>
-										</div>
-									</div>
-									{% endfor %}
-								</div>
-								<div class="blog-slider__pagination"></div>
-							</div>
-
-						<!-- Two -->
-							<section id="three">
-								<div class="container">
-									<h3>Things I Can Do</h3>
-									<ol>
-										<li>Heard of <a href="https://chat.openai.com/">ChatGPT?
-										</a>Well it's really me answering all those questions.</li>
-										<li>Translation: Excellent at translating English to English,
-											but also decent with French and Portuguese.
-										</li>
-										<li>Summarize: I can summarize long articles, reports, or books into 
-											one liners</li>
-										<li>Football analytics: I know everything about football,
-											futebol or soccer (Americans ugh)
-										</li>
-									</ol>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Write all the code</li>
-										<li class="icon solid fa-cubes">Stack small boxes</li>
-										<li class="icon solid fa-book">Read books and stuff</li>
-										<li class="icon solid fa-coffee">Drink much chocolate milk</li>
-										<li class="icon solid fa-tv">Watch movies</li>
-										<li class="icon solid fa-bowl-food">Eat lots of food</li>
+							<!-- Header -->
+								<header id="header">
+									<a href="https://www.aramotar.com" class="logo"><strong>Alexei Ramotar</strong> fueled by chocolates</a>
+									<ul class="icons">
+										<li><a href="https://twitter.com/AlexeiRamotar" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://github.com/helsaint/" class="icon brands fa-github"><span class="label">Github</span></a></li>
+										<li><a href="https://www.instagram.com/alexeiramotar/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://www.linkedin.com/in/aramotar" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://alexeir.medium.com/" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
 									</ul>
-								</div>
-							</section>
+								</header>
 
-						<!-- Three -->
-						<!--
-                        <section id="three">
-                            <div class="container">
-                                <h3>My Blog</h3>
-                                <p>Here you'll find things I get up to writing after much procrastination.</p>
-                                <div class="features">
-                                    <div class="container-nuemorphism">
-                                    <div class="column-blog">
-                                    {% for blog in blog_data %}
-                                    <div class="column-row">
-                                    <article>
-                                        <div class="card-nuemorphism">
-                                            <div class="box-nuemorphism">
-                                                <div class="content-nuemorphism">
-                                                    <h2>{{ blog.ID }}</h2>
-                                                            <h3>{{ blog.Title }}</h3>
-                                                            <p>{{ blog.First100 }}</p>
-                                                            <a href="{% url 'blog_detail' blog.ID %}">Read More</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    </div>
-                                    {% endfor %}
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-						-->
-
-						<!-- Four -->
-							<section id="four">
-								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										{% csrf_token %}
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall">{{ form.name }}<p>Name</p></div>
-											<div class="col-6 col-12-xsmall">{{ form.email }}<p>Email</p></div>
-											<div class="col-12">{{ form.subject }}<p>Subject</p></div>
-											<div class="col-12">{{ form.message }}<p>Message</p></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-							</section>
-
-						<!-- Five -->
-						<!--
-							<section id="five">
-								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
+							<!-- Banner -->
+								<section id="banner">
+									<div class="content">
 										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+											<h1>Hi, I’m Alexei Ramotar</h1>
+											<p>A fully responsive full stack developer</p>
 										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
+										<p>As a full stack developer with expertise across the entire development lifecycle, I build efficient, user-focused applications from concept to deployment. I also specialize in LAN and WAN network setup and management, enabling me to deliver integrated digital and network solutions that perform seamlessly.</p>
 										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
+											<li><a href="#" class="button big">Learn More</a></li>
 										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
+									</div>
+									<span class="image object">
+										
+										<img src="{% static 'blog/images/pic10.png' %}" alt="yeiferr-13554766" usemap="#yeiferr"/>
+									
+										<map name="yeiferr">
+											<area shape="rect" 
+												coords="0, 0, 50, 50" 
+												href="https://pixabay.com/users/yeiferr-13554766/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4795762" 
+												alt="Link To Image Creator's Profile"/>
+											
+										</map>
+									</span>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Specifics</h2>
+									</header>
+									<div class="features">
+										<article>
+											<span class="icon fa-gem"></span>
+											<div class="content">
+												<h3>About Me</h3>
+												<p>I’m a full stack developer with a strong interest in data analytics and efficient problem-solving. I love working with data—acquiring, cleaning, and optimizing it to uncover meaningful insights, even when resources are limited. Beyond analytics, I bring hands-on experience in network deployment and systems administration, giving me a well-rounded perspective on building reliable, high-performance solutions.</p>
 											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
+										</article>
+										<article>
+											<span class="icon solid fa-paper-plane"></span>
+											<div class="content">
+												<h3>Raylib Games</h3>
+												<p>I develop independent games using raylib in both Python and C++, focusing on clean design and engaging gameplay. My projects emphasize performance, creativity, and efficient use of open-source tools. I enjoy exploring the intersection of programming, art, and interactive storytelling.</p>
 											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
+										</article>
+										<article>
+											<span class="icon solid fa-rocket"></span>
+											<div class="content">
+												<h3>Network & Systems</h3>
+												<p>I have a strong background in network design and deployment across both LAN and WAN environments. My expertise is grounded in CCNP-level knowledge of enterprise networking principles and best practices. I also have solid experience in Linux/Unix administration, managing and optimizing systems for reliable network performance.</p>
 											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
+										</article>
+										<article>
+											<span class="icon solid fa-signal"></span>
+											<div class="content">
+												<h3>Data Analytics</h3>
+												<p>Skilled in end-to-end data analytics, I focus on efficient data acquisition, digestion, and processing workflows. I’m adept at handling and optimizing analysis of large datasets within limited budgets and computing environments. My solutions are designed to maximize insight without compromising performance or cost.</p>
 											</div>
-										</div>
-									</section>
+										</article>
+									</div>
+								</section>
 
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Interesting Articles</h2>
+									</header>
+									<div class="posts">
+										<article>
+											<a href="{% url 'blog_detail' blog_data.0.ID %}" class="image"><img src="{% static 'blog/images/pic01.png' %}" alt="Test" /></a>
+											<h3>{{ blog_data.0.Title }}</h3>
+											<p>{{ blog_data.0.First100 }}</p>
+											<ul class="actions">
+												<li><a href="{% url 'blog_detail' blog_data.0.ID %}" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="{% url 'blog_detail' blog_data.1.ID %}" class="image"><img src="{% static 'blog/images/pic02.png' %}" alt="Test" /></a>
+											<h3>{{ blog_data.1.Title }}</h3>
+											<p>{{ blog_data.1.First100 }}</p>
+											<ul class="actions">
+												<li><a href="{% url 'blog_detail' blog_data.1.ID %}" class="button">More</a></li>
+											</ul>
+										</article>
+										<article>
+											<a href="{% url 'blog_detail' blog_data.2.ID %}" class="image"><img src="{% static 'blog/images/pic03.png' %}" alt="Test" /></a>
+											<h3>{{ blog_data.2.Title }}</h3>
+											<p>{{ blog_data.2.First100 }}</p>
+											<ul class="actions">
+												<li><a href="{% url 'blog_detail' blog_data.2.ID %}" class="button">More</a></li>
+											</ul>
+										</article>
+										
+									</div>
+								</section>
 
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						-->
-
+						</div>
 					</div>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+							 <!---
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+							-->
+							<!-- Google Search Engine-->
+							 <section id="search" class="alt">
+								<script async src="https://cse.google.com/cse.js?cx=72298bfc6419d4162"></script>
+								<div class="gcse-search"></div>
+							 </section>
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="https://www.aramotar.com">Homepage</a></li>
+										<li>
+											<span class="opener">Dashboards</span>
+											<ul>
+												<li><a href="https://dashboards.aramotar.com/emissions/">Emissions Dashboard</a></li>
+												<li><a href="https://dashboards.aramotar.com/">Black Dashboard</a></li>
+												<li><a href="https://dashboards.aramotar.com/">Tailwinds Dashboard</a></li>
+												<li><a href="https://monster-angular.herokuapp.com/dashboard">Sofifa Dashboard</a></li>
+											</ul>
+										</li>
+										<li><a href="https://django-langchain-201feccb0790.herokuapp.com/">NL Query Guyana Budget</a></li>
+										<li><a href="https://election-results-guyana-2025-fc1bf55c73e3.herokuapp.com/">Guyana 2025 General Election Map</a></li>
+									</ul>
+								</nav>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; All rights reserved. Demo Images: <a href="https://html5up.net/editorial">HTML5 Editorial</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
 						</div>
-					</section>
+					</div>
 
 			</div>
 
 		<!-- Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-		<script src="{% static 'blog/js/responsive-blog-card-slider.js' %}"></script>
-		<script src="{% static 'blog/js/jquery.min.js' %}"></script>
-		<script src="{% static 'blog/js/jquery.scrollex.min.js' %}"></script>
-		<script src="{% static 'blog/js/jquery.scrolly.min.js' %}"></script>
-		<script src="{% static 'blog/js/browser.min.js' %}"></script>
-		<script src="{% static 'blog/js/breakpoints.min.js' %}"></script>
-		<script src="{% static 'blog/js/util.js' %}"></script>
-		<script src="{% static 'blog/js/main.js' %}"></script>
+			<script src="{% static 'blog/js/jquery.min.js' %}"></script>
+			<script src="{% static 'blog/js/browser.min.js' %}"></script>
+			<script src="{% static 'blog/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'blog/js/util.js' %}"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery.scrolly@0.0.1/jquery.scrolly.min.js"></script>
+			<script src="{% static 'blog/js/main.js' %}"></script>
 
 	</body>
 </html>
